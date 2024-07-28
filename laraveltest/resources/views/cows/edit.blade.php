@@ -29,7 +29,7 @@
 
 <body>
     <div class="container">
-        <h1 class="mb-4">Edit Cow</h1>
+        <h1 class="mb-4">Editar vaca</h1>
         <form action="{{ route('cows.update', $cow->id) }}" method="POST">
             @csrf
             @method('PUT')
@@ -55,7 +55,8 @@
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+            <a href="{{ url('/cows/visualizar') }}" class="btn btn-link mt-3">Voltar</a>
         </form>
     </div>
 

@@ -16,7 +16,7 @@ Route::delete('/{id}', [UserController::class, 'destroy']);
 // Rotas de vacas
 
 Route::prefix('cows')->group(function () {
-    Route::get('/', [CowController::class, 'index'])->name('cows.index');
+    Route::get('/visualizar', [CowController::class, 'index'])->name('cows.index');
     Route::get('/create', [CowController::class, 'create'])->name('cows.create');
     Route::post('/store', [CowController::class, 'store'])->name('cows.store');
     Route::get('/{cow}/edit', [CowController::class, 'edit'])->name('cows.edit');

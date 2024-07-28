@@ -52,7 +52,8 @@
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
+            <a href="{{ url('/cows/visualizar') }}" class="btn btn-link mt-3">Voltar</a>
         </form>
     </div>
 

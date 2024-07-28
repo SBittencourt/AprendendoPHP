@@ -23,7 +23,6 @@
         <div class="container">
             <h1 class="my-4">CRUD de Fazendeiros</h1>
             <a href="{{ url('/add-user') }}" class="btn btn-primary mb-3">Cadastrar Fazendeiro</a>
-            <a href="{{ route('cows.create') }}" class="btn btn-secondary mb-3">Cadastrar Nova Vaca</a>
             <a href="{{ route('cows.index') }}" class="btn btn-info mb-3">Listar Vacas</a>
             <table class="table table-striped">
                 <thead>
