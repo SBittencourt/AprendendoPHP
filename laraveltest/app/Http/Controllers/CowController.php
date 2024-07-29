@@ -24,8 +24,8 @@ class CowController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'type' => 'required|string|max:255',
+            'name' => 'required',
+            'type' => 'required',
             'birthday' => 'required|date',
             'user_id' => 'required|exists:users,id',
         ]);
@@ -41,11 +41,12 @@ class CowController extends Controller
         return view('cows.edit', compact('cow', 'users'));
     }
 
+    
     public function update(Request $request, Cow $cow)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'type' => 'required|string|max:255',
+            'name' => 'required',
+            'type' => 'required',
             'birthday' => 'required|date',
             'user_id' => 'required|exists:users,id',
         ]);
