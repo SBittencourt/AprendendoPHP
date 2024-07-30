@@ -1,25 +1,29 @@
 <?php
 
-use App\Http\Controllers\CowController;
+use App\Http\Controllers\PhotoController;
 use Illuminate\Support\Facades\Route;
 
-// Rotas de fazendeiros
-use App\Http\Controllers\UserController;
+// Rotas de eventos
+use App\Http\Controllers\EventController;
 
-Route::get('/', [UserController::class, 'index']);
-Route::get('/add-user', [UserController::class, 'addUserForm']);
-Route::post('/store-user', [UserController::class, 'storeUser']);
-Route::get('/{id}', [UserController::class, 'edit']);
-Route::put('/update/{id}', [UserController::class, 'update']);
-Route::delete('/{id}', [UserController::class, 'destroy']);
+Route::get('/', [EventController::class, 'index']);
+Route::get('/events', [EventController::class, 'all']);
+Route::get('/events/{id}', [EventController::class, 'details'])->name('events.details');
 
-// Rotas de vacas
 
-Route::prefix('cows')->group(function () {
-    Route::get('/visualizar', [CowController::class, 'index'])->name('cows.index');
-    Route::get('/create', [CowController::class, 'create'])->name('cows.create');
-    Route::post('/store', [CowController::class, 'store'])->name('cows.store');
-    Route::get('/{cow}/edit', [CowController::class, 'edit'])->name('cows.edit');
-    Route::put('/{cow}', [CowController::class, 'update'])->name('cows.update');
-    Route::delete('/{cow}', [CowController::class, 'destroy'])->name('cows.destroy');
+
+Route::get('/add-event', [EventController::class, 'addeventForm']);
+Route::post('/store-event', [EventController::class, 'storeevent']);
+Route::put('/update/{id}', [EventController::class, 'update']);
+Route::delete('/{id}', [EventController::class, 'destroy']);
+
+// Rotas de photos
+
+Route::prefix('photo')->group(function () {
+    Route::get('/visualizar', [PhotoController::class, 'index'])->name('photo.index');
+    Route::get('/create', [PhotoController::class, 'create'])->name('photo.create');
+    Route::post('/store', [PhotoController::class, 'store'])->name('photo.store');
+    Route::get('/{cow}/edit', [PhotoController::class, 'edit'])->name('photo.edit');
+    Route::put('/{cow}', [PhotoController::class, 'update'])->name('photo.update');
+    Route::delete('/{cow}', [PhotoController::class, 'destroy'])->name('photo.destroy');
 });
